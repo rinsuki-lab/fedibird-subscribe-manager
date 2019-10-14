@@ -12,7 +12,7 @@ export class MastodonClient {
             client_id: this.clientId,
             response_type: "code",
             redirect_uri: "urn:ietf:wg:oauth:2.0:oob",
-            scope: ["read:accounts", "read:lists", "write:accounts", "write:lists"].join(" "),
+            scope: ["read:accounts", "read:follows", "read:lists", "write:accounts", "write:follows", "write:lists"].join(" "),
         }).map(([k, v]) => `${k}=${v}`).join("&")
         return `https://${this.mastodonHost}/oauth/authorize?${params}`
     }
